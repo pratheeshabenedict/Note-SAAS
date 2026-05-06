@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   DESIGN TOKENS — LIGHT THEME (DEFAULT)
+   ============================================ */
+:root {
+  /* Surfaces */
+  --surface: #ffffff;
+  --surface-raised: #f8fafc;
+  --surface-overlay: #ffffff;
+  --surface-sunken: #f1f5f9;
+
+  /* Text */
+  --ink: #0f172a;
+  --ink-secondary: #475569;
+  --ink-muted: #94a3b8;
+  --ink-placeholder: #cbd5e1;
+
+  /* Borders */
+  --edge: rgba(15, 23, 42, 0.08);
+  --edge-strong: rgba(15, 23, 42, 0.16);
+
+  /* Brand */
+  --brand: #0ea5e9;
+  --brand-hover: #0284c7;
+  --brand-subtle: #e0f2fe;
+  --brand-text: #0369a1;
+
+  /* Sidebar */
+  --sidebar-bg: #f8fafc;
+  --sidebar-width: 260px;
+
+  /* Scrollbar */
+  --scrollbar: #e2e8f0;
+  --scrollbar-hover: #cbd5e1;
+
+  /* Status */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #3b82f6;
+}
+
+/* ============================================
+   DARK THEME
+   ============================================ */
+.dark {
+  --surface: #0f1117;
+  --surface-raised: #161b27;
+  --surface-overlay: #1c2232;
+  --surface-sunken: #0a0d14;
+
+  --ink: #f1f5f9;
+  --ink-secondary: #94a3b8;
+  --ink-muted: #475569;
+  --ink-placeholder: #334155;
+
+  --edge: rgba(241, 245, 249, 0.06);
+  --edge-strong: rgba(241, 245, 249, 0.12);
+
+  --brand: #38bdf8;
+  --brand-hover: #7dd3fc;
+  --brand-subtle: rgba(56, 189, 248, 0.1);
+  --brand-text: #7dd3fc;
+
+  --sidebar-bg: #0d1219;
+
+  --scrollbar: #1e2a3a;
+  --scrollbar-hover: #2d3f52;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--surface);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar);
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+@layer components {
+
+  /* Surface cards */
+  .card {
+    @apply bg-[var(--surface-raised)] rounded-xl border border-[var(--edge)] shadow-card transition-all duration-200;
+  }
+
+  .card:hover {
+    @apply shadow-card-hover;
+  }
+
+  /* Sidebar nav item */
+  .nav-item {
+    @apply flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-[var(--ink-secondary)] hover:bg-[var(--surface-sunken)] hover:text-[var(--ink)] transition-all duration-150 cursor-pointer select-none;
+  }
+
+  .nav-item.active {
+    @apply bg-[var(--brand-subtle)] text-[var(--brand-text)] font-semibold;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed select-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-[var(--brand)] text-white hover:bg-[var(--brand-hover)] shadow-sm hover:shadow-md active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply btn bg-[var(--surface-raised)] text-[var(--ink)] border border-[var(--edge)] hover:border-[var(--edge-strong)] hover:bg-[var(--surface-sunken)] active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply btn text-[var(--ink-secondary)] hover:bg-[var(--surface-sunken)] hover:text-[var(--ink)] active:scale-[0.98];
+  }
+
+  .btn-danger {
+    @apply btn bg-red-500 text-white hover:bg-red-600 active:scale-[0.98];
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs rounded-md;
+  }
+
+  .btn-lg {
+    @apply px-6 py-3 text-base rounded-xl;
+  }
+
+  .btn-icon {
+    @apply btn p-2 rounded-lg;
+  }
+
+  /* Input */
+  .input {
+    @apply w-full px-3.5 py-2.5 text-sm bg-[var(--surface-raised)] border border-[var(--edge)] rounded-lg text-[var(--ink)] placeholder:text-[var(--ink-placeholder)] focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-[var(--brand)] transition-all duration-150;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  /* Skeleton loading */
+  .skeleton {
+    @apply bg-gradient-to-r from-[var(--surface-raised)] via-[var(--surface-sunken)] to-[var(--surface-raised)] bg-[length:200%_100%] animate-shimmer rounded-lg;
+  }
+}
+
+/* ============================================
+   TIPTAP EDITOR
+   ============================================ */
+.ProseMirror {
+  outline: none;
+  min-height: 100%;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--ink);
+  padding: 2rem;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: var(--ink-placeholder);
+  pointer-events: none;
+  height: 0;
+}
+
+.ProseMirror h1 {
+  @apply text-3xl font-bold mb-4 mt-6 text-[var(--ink)];
+}
+
+.ProseMirror h2 {
+  @apply text-2xl font-semibold mb-3 mt-5 text-[var(--ink)];
+}
+
+.ProseMirror h3 {
+  @apply text-xl font-semibold mb-2 mt-4 text-[var(--ink)];
+}
+
+.ProseMirror p {
+  @apply mb-3 text-[var(--ink)];
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  @apply ml-6 mb-3;
+}
+
+.ProseMirror ul {
+  @apply list-disc;
+}
+
+.ProseMirror ol {
+  @apply list-decimal;
+}
+
+.ProseMirror li {
+  @apply mb-1;
+}
+
+.ProseMirror blockquote {
+  @apply border-l-4 border-[var(--brand)] pl-4 py-1 my-3 text-[var(--ink-secondary)] italic bg-[var(--brand-subtle)] rounded-r-lg;
+}
+
+.ProseMirror code {
+  @apply font-mono text-sm bg-[var(--surface-sunken)] px-1.5 py-0.5 rounded text-[var(--brand)] border border-[var(--edge)];
+}
+
+.ProseMirror pre {
+  @apply bg-[var(--surface-sunken)] rounded-xl p-4 my-4 overflow-x-auto border border-[var(--edge)] font-mono text-sm;
+}
+
+.ProseMirror pre code {
+  @apply bg-transparent border-none p-0 text-inherit;
+}
+
+.ProseMirror hr {
+  @apply border-none border-t border-[var(--edge)] my-6;
+}
+
+.ProseMirror a {
+  @apply text-[var(--brand)] underline underline-offset-2 hover:text-[var(--brand-hover)];
+}
+
+/* Task list */
+.ProseMirror ul[data-type="taskList"] {
+  @apply list-none ml-0;
+}
+
+.ProseMirror ul[data-type="taskList"] li {
+  @apply flex items-start gap-2;
+}
+
+.ProseMirror ul[data-type="taskList"] li>label {
+  @apply mt-1 flex-shrink-0;
+}
+
+.ProseMirror ul[data-type="taskList"] input[type="checkbox"] {
+  @apply w-4 h-4 rounded accent-[var(--brand)];
+}
+
+/* Table */
+.ProseMirror table {
+  @apply w-full border-collapse my-4 text-sm;
+}
+
+.ProseMirror th {
+  @apply bg-[var(--surface-sunken)] font-semibold text-left px-3 py-2 border border-[var(--edge)];
+}
+
+.ProseMirror td {
+  @apply px-3 py-2 border border-[var(--edge)];
+}
+
+/* ============================================
+   NOTE COLOR ACCENTS
+   ============================================ */
+.note-color-red {
+  --note-accent: #fca5a5;
+  --note-bg: #fff5f5;
+}
+
+.note-color-orange {
+  --note-accent: #fdba74;
+  --note-bg: #fff8f1;
+}
+
+.note-color-yellow {
+  --note-accent: #fde047;
+  --note-bg: #fffde7;
+}
+
+.note-color-green {
+  --note-accent: #86efac;
+  --note-bg: #f0fdf4;
+}
+
+.note-color-teal {
+  --note-accent: #5eead4;
+  --note-bg: #f0fdfa;
+}
+
+.note-color-blue {
+  --note-accent: #93c5fd;
+  --note-bg: #eff6ff;
+}
+
+.note-color-purple {
+  --note-accent: #c4b5fd;
+  --note-bg: #faf5ff;
+}
+
+.note-color-pink {
+  --note-accent: #f9a8d4;
+  --note-bg: #fdf2f8;
+}
+
+.dark .note-color-red {
+  --note-bg: rgba(252, 165, 165, 0.05);
+}
+
+.dark .note-color-orange {
+  --note-bg: rgba(253, 186, 116, 0.05);
+}
+
+.dark .note-color-yellow {
+  --note-bg: rgba(253, 224, 71, 0.05);
+}
+
+.dark .note-color-green {
+  --note-bg: rgba(134, 239, 172, 0.05);
+}
+
+.dark .note-color-teal {
+  --note-bg: rgba(94, 234, 212, 0.05);
+}
+
+.dark .note-color-blue {
+  --note-bg: rgba(147, 197, 253, 0.05);
+}
+
+.dark .note-color-purple {
+  --note-bg: rgba(196, 181, 253, 0.05);
+}
+
+.dark .note-color-pink {
+  --note-bg: rgba(249, 168, 212, 0.05);
+}
