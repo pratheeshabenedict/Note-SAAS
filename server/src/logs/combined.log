@@ -1,0 +1,22 @@
+{"level":"info","message":"MongoDB Connected: ac-mfrpik6-shard-00-02.lx71koy.mongodb.net","service":"notebook-api","timestamp":"2026-05-05 21:31:58"}
+{"level":"info","message":"Server running on port 5000 in development mode","service":"notebook-api","timestamp":"2026-05-05 21:31:58"}
+{"level":"info","message":"SIGINT received. Shutting down gracefully...","service":"notebook-api","timestamp":"2026-05-05 21:32:03"}
+{"level":"info","message":"MongoDB Connected: ac-mfrpik6-shard-00-01.lx71koy.mongodb.net","service":"notebook-api","timestamp":"2026-05-05 22:20:23"}
+{"level":"info","message":"Server running on port 5000 in development mode","service":"notebook-api","timestamp":"2026-05-05 22:20:23"}
+{"level":"info","message":"New user registered: pratheesha1925@gmail.com","service":"notebook-api","timestamp":"2026-05-05 22:39:08"}
+{"level":"info","message":"User logged in: pratheesha1925@gmail.com","service":"notebook-api","timestamp":"2026-05-05 22:40:02"}
+{"level":"info","message":"User logged in: pratheesha1925@gmail.com","service":"notebook-api","timestamp":"2026-05-05 22:40:35"}
+{"level":"info","message":"SIGINT received. Shutting down gracefully...","service":"notebook-api","timestamp":"2026-05-05 22:45:54"}
+{"level":"info","message":"MongoDB Connected: ac-mfrpik6-shard-00-00.lx71koy.mongodb.net","service":"notebook-api","timestamp":"2026-05-05 22:47:11"}
+{"level":"info","message":"Server running on port 5000 in development mode","service":"notebook-api","timestamp":"2026-05-05 22:47:11"}
+{"level":"info","message":"SIGINT received. Shutting down gracefully...","service":"notebook-api","timestamp":"2026-05-05 23:14:14"}
+{"level":"info","message":"MongoDB Connected: ac-mfrpik6-shard-00-02.lx71koy.mongodb.net","service":"notebook-api","timestamp":"2026-05-05 23:14:24"}
+{"level":"info","message":"Server running on port 5000 in development mode","service":"notebook-api","timestamp":"2026-05-05 23:14:24"}
+{"level":"info","message":"User logged in: pratheesha1925@gmail.com","service":"notebook-api","timestamp":"2026-05-05 23:55:16"}
+{"level":"info","message":"User logged in: pratheesha1925@gmail.com","service":"notebook-api","timestamp":"2026-05-05 23:58:12"}
+{"level":"info","message":"New user registered: pratheeshabenedict@gmail.com","service":"notebook-api","timestamp":"2026-05-05 23:59:10"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"notebook-api","timestamp":"2026-05-06 01:18:09"}
+{"level":"info","message":"MongoDB reconnected","service":"notebook-api","timestamp":"2026-05-06 01:18:20"}
+{"level":"info","message":"User logged in: pratheesha1925@gmail.com","service":"notebook-api","timestamp":"2026-05-06 01:23:41"}
+{"level":"info","message":"MongoDB Connected: ac-mfrpik6-shard-00-01.lx71koy.mongodb.net","service":"notebook-api","timestamp":"2026-05-06 01:24:17"}
+{"level":"info","message":"Server running on port 5000 in development mode","service":"notebook-api","timestamp":"2026-05-06 01:24:17"}
